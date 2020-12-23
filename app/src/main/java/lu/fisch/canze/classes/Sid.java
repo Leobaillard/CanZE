@@ -46,6 +46,7 @@ public class Sid {
     public static final String ThermalComfortPower                  = "764.6143.88";
     public static final String Pressure                             = "764.6143.134";
     public static final String OH_ClimTempDisplay                   = "764.6145.29";
+    public static final String OutsideTemperature                   = "764.6143.110";
 
     public static final String TpmsState                            = "765.6171.16";
 
@@ -127,6 +128,7 @@ public class Sid {
     public static final String TotalPositiveTorque                  = "800.610b.24";
     public static final String TotalNegativeTorque                  = "800.610c.24";
     public static final String ACPilot                              = "800.610d.24";
+    public static final String GPSPosition                          = "800.610e.24";
 
     public static final String CCSEVSEMaxPower                      = "18daf1da.623006.24";
     public static final String CCSEVSEMaxVoltage                    = "18daf1da.623008.24";

@@ -96,6 +96,10 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String SETTING_APP_OLD_SETTINGS_VALUES = "appOldSettingsValues";
     public static final String SETTING_APP_DISCLAIMER_SEEN = "appDisclaimerSeen";
     public static final String SETTING_APP_VERSION = "appVersion";
+    // -> Sharing
+    public static final String SETTING_SHARING_ABRP = "sharingAbrp";
+    public static final String SETTING_SHARING_ABRP_POS = "sharingAbrpPos";
+    public static final String SETTING_SHARING_ABRP_TOKEN = "sharingAbrpToken";
     // -> Actions & buttons
     public static final String BTN_LOGGING_SETTINGS = "btnLoggingSettings";
     public static final String BTN_CAN_SEE_SETTINGS = "btnCanSeeSettings";

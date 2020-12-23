@@ -874,5 +874,11 @@
 
     <!-- ZE50 test -->
     <string name="title_activity_ZE50Test">ZE50 test</string>
+    <string name="label_Sharing">Sharing</string>
+    <string name="label_Sharing_Abrp">ABetterRoutePlanner</string>
+    <string name="help_Sharing_Abrp">If enabled, vehicule status will be shared with ABRP every 10s</string>
+    <string name="label_Sharing_Abrp_Pos">Share vehicule position with ABRP</string>
+    <string name="help_Sharing_Abrp_Pos">If enabled, the vehicule\'s position will be sent to ABRP every 10s</string>
+    <string name="label_Sharing_Abrp_Token">User token</string>
 
 </resources>

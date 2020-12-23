@@ -78,6 +78,7 @@ import lu.fisch.canze.actors.Field;
 import lu.fisch.canze.actors.Fields;
 import lu.fisch.canze.actors.Frames;
 import lu.fisch.canze.bluetooth.BluetoothManager;
+import lu.fisch.canze.classes.AbrpDataSharer;
 import lu.fisch.canze.classes.Activity;
 import lu.fisch.canze.classes.ActivityRegistry;
 import lu.fisch.canze.classes.DataLogger;
@@ -153,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements FieldListener /*,
     // private int count;
     // private long start;
 
-    private SharedPreferences settings = null;
+    public SharedPreferences settings = null;
 
     private boolean visible = true;
     public boolean leaveBluetoothOn = false;
@@ -199,6 +200,9 @@ public class MainActivity extends AppCompatActivity implements FieldListener /*,
     private final static int BLUETOOTH_CONNECTED = 23;
     protected Menu mOptionsMenu; // needed to find BT symbol
     private int mBtState = BLUETOOTH_SEARCH;
+
+    // sharing stuff
+    public static AbrpDataSharer abrpDataSharer = null;
 
     private boolean storageGranted = false;
     private int startAnotherFragmentIndex = -2;
@@ -379,6 +383,13 @@ public class MainActivity extends AppCompatActivity implements FieldListener /*,
 
             // after loading PREFERENCES we may have new values for "dataExportMode"
             dataExportMode = dataLogger.activate(dataExportMode);
+
+            if (settings.getBoolean(SettingsActivity.SETTING_SHARING_ABRP, false) &&
+                    !settings.getString(SettingsActivity.SETTING_SHARING_ABRP_TOKEN, "").equals("")) {
+                abrpDataSharer.setActive(true);
+            }
+
+
         } catch (Exception e) {
             if (BuildConfig.BRANCH.equals("master")) {
                 logExceptionToCrashlytics(e);
@@ -483,6 +494,9 @@ public class MainActivity extends AppCompatActivity implements FieldListener /*,
 
         // dataLogger = DataLogger.getInstance();
         dataLogger = new DataLogger();
+
+        // ABRP sharing
+        abrpDataSharer = AbrpDataSharer.getInstance();
 
         debug("MainActivity: onCreate");
 
@@ -859,6 +873,7 @@ public class MainActivity extends AppCompatActivity implements FieldListener /*,
         debug("MainActivity: onDestroy");
 
         dataLogger.destroy(); // clean up
+        abrpDataSharer.destroy();
 
         if (device != null) {
             // stop the device nicely

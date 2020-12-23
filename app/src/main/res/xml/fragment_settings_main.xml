@@ -117,6 +117,26 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        app:title="@string/label_Sharing"
+        app:iconSpaceReserved="false">
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="sharingAbrp"
+            app:title="@string/label_Sharing_Abrp"
+            app:summary="@string/help_Sharing_Abrp" />
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="sharingAbrpPos"
+            app:title="@string/label_Sharing_Abrp_Pos"
+            app:summary="@string/help_Sharing_Abrp_Pos" />
+        <EditTextPreference
+            app:iconSpaceReserved="false"
+            app:key="sharingAbrpToken"
+            app:useSimpleSummaryProvider="true"
+            app:title="@string/label_Sharing_Abrp_Token" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         app:title="@string/label_Actions"
         app:iconSpaceReserved="false">
         <Preference
